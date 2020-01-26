@@ -1,9 +1,11 @@
-import {pageContent} from './components/pageContent.js'
-import {mainPage} from './components/mainPage.js'
+import {mainPage} from './view/mainPage.js'
+import {tariffPage} from './view/tariffPage.js'
+import {optionPage} from './view/optionPage.js'
 
 const routes = [
     { path: '/', component: mainPage },
-    { path: '/home', component: pageContent },
+    { path: '/:tariff', component: tariffPage},
+    { path: '/:tariff/:id', component: optionPage}
   ];
   
 export const router = new VueRouter({routes});

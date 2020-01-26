@@ -10,11 +10,11 @@ export const store = new Vuex.Store({
       }
     },
     actions: {
-      loadTariffs({commit}) {
-        axios
-          .get('procces.php')
-          .then(r => r.data)
-          .then(tariffs => commit('SET_TARIFFS', tariffs.tarifs))
+      loadTariffs: async ({commit}) =>  {
+        let {data} = await axios.get('procces.php')
+
+        console.log(data)
+        commit('SET_TARIFFS', data.tarifs)
       }
     },
     mutations: {
